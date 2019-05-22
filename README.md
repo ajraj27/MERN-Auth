@@ -1,2 +1,2 @@
-# Mern-Auth
-A simple Mern Auth app
+# MERN-Auth
+A simple MERN Auth app
