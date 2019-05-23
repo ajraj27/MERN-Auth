@@ -11,7 +11,7 @@ const app=express();
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "client", "public")))
+app.use(express.static(path.join(__dirname, "client", "build")))
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/AuthApp", { useNewUrlParser: true })
 .then(() => console.log("MongoDB successfully connected"))
@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/AuthApp",
 app.use("/routes/api/users", users);
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "public", "index.html"));
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 app.listen(process.env.PORT || 5000,() => {
