@@ -7,6 +7,7 @@ const validateRegisterInput = require("../../validation/Register");
 const validateLoginInput = require("../../validation/Login");
 
 const User = require("../../Models/User");
+const secret=process.env.SECRET || "anuj";
 
 router.post("/register", (req, res) => {
 
@@ -65,7 +66,7 @@ router.post("/login", (req, res) => {
 
           jwt.sign(
             payload,
-            "anuj",
+            secret,
             {
               expiresIn: 31556926 // 1 year in seconds
             },
